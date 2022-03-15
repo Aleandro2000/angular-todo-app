@@ -1,0 +1,52 @@
+<div class="card shadow">
+    <div class="card-body">
+        <div>
+            id
+        </div>
+        <div class="input-group my-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Name</span>
+            </div>
+            <input type="text" class="form-control" aria-describedby="nam-input">
+        </div>
+        <div class="input-group my-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Email</span>
+            </div>
+            <input type="email" class="form-control" aria-describedby="nam-input">
+        </div>
+        <div class="d-flex flex-row">
+            <button class="btn btn-dark" (click)="showMore()">
+                Other Data
+            </button>
+        </div>
+        <div class="d-flex flex-row-reverse my-2">
+            <button class="btn btn-dark mx-1">
+                Delete
+            </button>
+            <button class="btn btn-dark mx-1">
+                Update
+            </button>
+        </div>
+        <div *ngIf="show">
+            <div class="input-group my-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Street</span>
+                </div>
+                <input type="text" class="form-control" aria-describedby="nam-input">
+            </div>
+            <div class="input-group my-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">City</span>
+                </div>
+                <input type="text" class="form-control" aria-describedby="nam-input">
+            </div>
+            <div class="input-group my-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Zip Code</span>
+                </div>
+                <input type="text" class="form-control" aria-describedby="nam-input">
+            </div>
+        </div>
+    </div>
+</div>
