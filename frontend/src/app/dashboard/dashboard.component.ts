@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ApiService } from "../service/api.service"
 
 @Component({
   selector: 'app-dashboard',
@@ -9,13 +9,31 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
 
   show = false;
+  users: any;
+  message: any;
+
+  constructor(
+    private apiService: ApiService
+  ) { }
 
   ngOnInit(): void {
-      this.show = false;
+      this.getAllUsers();
   }
 
   showMore(): void {
     this.show = !this.show;
+  }
+
+  getAllUsers() {
+    this.apiService.getAllUsers()
+      .subscribe(
+        data => {
+          this.users = data;
+        },
+        error => {
+          this.message = error;
+        }
+      )
   }
 
 }
