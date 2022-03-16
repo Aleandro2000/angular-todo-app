@@ -2,7 +2,7 @@ const { posts } = require("../models");
 
 module.exports = {
     createPost: (req, res) => {
-        posts.findOne({ title: req.body.title }, (post, err) => {
+        posts.findOne({ title: req.body.title }, (err, post) => {
             if (err)
                 res.send({ status: 400, message: err.message });
             else if (!post) {
@@ -18,8 +18,8 @@ module.exports = {
         });
     },
     getAllPosts: (req, res) => {
-        posts.findById(req.body._id, (posts, err) => {
-            err ? res.send({ status: 400, message: err.message }) : res.send({ status: 400, result: posts });
+        posts.findById(req.body._id, (err, posts) => {
+            err ? res.send({ status: 400, message: err.message }) : res.send({ status: 200, result: posts });
         });
     }
 };

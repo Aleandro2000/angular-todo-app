@@ -1,7 +1,7 @@
-<div class="card shadow" *ngFor="user in users">
+<div class="card shadow my-1" *ngFor="let user of users.result">
     <div class="card-body">
         <div>
-            id
+            {{user.key}}
         </div>
         <div class="input-group my-3">
             <div class="input-group-prepend">
@@ -15,10 +15,23 @@
             </div>
             <input type="email" class="form-control" aria-describedby="nam-input" value="user.email">
         </div>
-        <div class="d-flex flex-row">
-            <button class="btn btn-dark" (click)="showMore()">
-                Other Data
-            </button>
+        <div class="input-group my-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Street</span>
+            </div>
+            <input type="text" class="form-control" aria-describedby="nam-input" value="user.street">
+        </div>
+        <div class="input-group my-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">City</span>
+            </div>
+            <input type="text" class="form-control" aria-describedby="nam-input" value="user.city">
+        </div>
+        <div class="input-group my-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Zip Code</span>
+            </div>
+            <input type="text" class="form-control" aria-describedby="nam-input" value="user.zip">
         </div>
         <div class="d-flex flex-row-reverse my-2">
             <button class="btn btn-dark mx-1">
@@ -27,26 +40,6 @@
             <button class="btn btn-dark mx-1">
                 Update
             </button>
-        </div>
-        <div *ngIf="show">
-            <div class="input-group my-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Street</span>
-                </div>
-                <input type="text" class="form-control" aria-describedby="nam-input" value="user.street">
-            </div>
-            <div class="input-group my-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">City</span>
-                </div>
-                <input type="text" class="form-control" aria-describedby="nam-input" value="user.city">
-            </div>
-            <div class="input-group my-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Zip Code</span>
-                </div>
-                <input type="text" class="form-control" aria-describedby="nam-input" value="user.zip">
-            </div>
         </div>
     </div>
 </div>

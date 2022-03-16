@@ -2,7 +2,7 @@ const { tasks } = require("../models");
 
 module.exports = {
     createTask: (req, res) => {
-        tasks.findOne({ title: req.body.title }, (task, err) => {
+        tasks.findOne({ title: req.body.title }, (err, task) => {
             if (err)
                 res.send({ status: 400, message: err.message });
             else if (!task) {
@@ -17,13 +17,13 @@ module.exports = {
         });
     },
     markTask: (req, res) => {
-        tasks.findByIdAndUpdate(req.body._id, { completed: true }, (task, err) => {
-            err ? res.send({ status: 400, message: err.message }) : res.send({ status: 400, message: "Task marked!" });
+        tasks.findByIdAndUpdate(req.body._id, { completed: true }, (err, task) => {
+            err ? res.send({ status: 400, message: err.message }) : res.send({ status: 200, message: "Task marked!" });
         });
     },
     getAllTasks: (req, res) => {
-        tasks.findById(req.body._id, (tasks, err) => {
-            err ? res.send({ status: 400, message: err.message }) : res.send({ status: 400, result: tasks });
+        tasks.findById(req.body._id, (err, tasks) => {
+            err ? res.send({ status: 400, message: err.message }) : res.send({ status: 200, result: tasks });
         });
     }
 };

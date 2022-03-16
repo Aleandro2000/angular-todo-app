@@ -2,7 +2,7 @@ const { users, tasks, posts } = require("../models");
 
 module.exports = {
     createUser: (req, res) => {
-        users.findOne({ email: req.body.email }, (user, err) => {
+        users.findOne({ email: req.body.email }, (err, user) => {
             if (err)
                 res.send({ status: 400, message: err.message });
             else if (!user) {
@@ -25,17 +25,18 @@ module.exports = {
             email: req.body.email,
             street: req.body.street,
             zip: req.body.zip
-        }, (user, err) => {
+        }, (err, user) => {
             err ? res.send({ status: 400, message: err.message }) : res.send({ status: 400, message: "User updated successfully!" });
         });
     },
     getAllUsers: (req, res) => {
-        users.find({}, (users, err) => {
+        users.find({}, (err, users) => {
+            console.log(err)
             err ? res.send({ status: 400, message: err.message }) : res.send({ status: 200, result: users });
         })
     },
     deleteUser: (req, res) => {
-        users.findByIdAndDelete(req.body._id, (user, err) => {
+        users.findByIdAndDelete(req.body._id, (err, user) => {
             tasks.deleteMany({ _userId: req.body._id }, (user, err) => {});
             posts.deleteMany({ _userId: req.body._id }, (user, err) => {});
             err ? res.send({ status: 400, message: err.message }) : res.send({ status: 400, message: "User deleted successfully!" });

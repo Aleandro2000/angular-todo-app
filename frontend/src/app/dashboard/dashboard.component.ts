@@ -8,20 +8,16 @@ import { ApiService } from "../service/api.service"
 })
 export class DashboardComponent implements OnInit {
 
-  show = false;
   users: any;
-  message: any;
+  message = "";
+  search = "";
 
   constructor(
     private apiService: ApiService
   ) { }
 
-  ngOnInit(): void {
-      this.getAllUsers();
-  }
-
-  showMore(): void {
-    this.show = !this.show;
+  ngOnInit() {
+    this.getAllUsers();
   }
 
   getAllUsers() {
@@ -34,6 +30,14 @@ export class DashboardComponent implements OnInit {
           this.message = error;
         }
       )
+  }
+
+  editUser(data: any) {
+
+  }
+
+  deleteUser(data: any) {
+
   }
 
 }
