@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from "../service/api.service"
+import { ApiService } from "../service/api.service";
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
+  providers: [ApiService]
 })
 export class DashboardComponent implements OnInit {
 
@@ -16,7 +17,7 @@ export class DashboardComponent implements OnInit {
     private apiService: ApiService
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getAllUsers();
   }
 
@@ -29,15 +30,27 @@ export class DashboardComponent implements OnInit {
         error => {
           this.message = error;
         }
-      )
+      );
   }
 
   editUser(data: any) {
-
+    this.apiService.editUser(data)
+      .subscribe(
+        data => {},
+        error => {
+          this.message = error;
+        }
+      );
   }
 
   deleteUser(data: any) {
-
+    this.apiService.deleteUser(data)
+      .subscribe(
+        data => {},
+        error => {
+          this.message = error;
+        }
+      );
   }
 
 }

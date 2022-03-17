@@ -1,37 +1,37 @@
-<div class="card shadow my-1" *ngFor="let user of users.result">
+<div class="card shadow my-1" *ngFor="let index in users.result">
     <div class="card-body">
         <div>
-            {{user.key}}
+            {{index + 1}}
         </div>
         <div class="input-group my-3">
             <div class="input-group-prepend">
                 <span class="input-group-text">Name</span>
             </div>
-            <input type="text" class="form-control" aria-describedby="nam-input" value="user.name">
+            <input type="text" class="form-control" aria-describedby="nam-input" value={{users[index].name}}>
         </div>
         <div class="input-group my-3">
             <div class="input-group-prepend">
                 <span class="input-group-text">Email</span>
             </div>
-            <input type="email" class="form-control" aria-describedby="nam-input" value="user.email">
+            <input type="email" class="form-control" aria-describedby="nam-input" value={{users[index].email}}>
         </div>
         <div class="input-group my-3">
             <div class="input-group-prepend">
                 <span class="input-group-text">Street</span>
             </div>
-            <input type="text" class="form-control" aria-describedby="nam-input" value="user.street">
+            <input type="text" class="form-control" aria-describedby="nam-input" value={{users[index].street}}>
         </div>
         <div class="input-group my-3">
             <div class="input-group-prepend">
                 <span class="input-group-text">City</span>
             </div>
-            <input type="text" class="form-control" aria-describedby="nam-input" value="user.city">
+            <input type="text" class="form-control" aria-describedby="nam-input" value={{users[index].city}}>
         </div>
         <div class="input-group my-3">
             <div class="input-group-prepend">
                 <span class="input-group-text">Zip Code</span>
             </div>
-            <input type="text" class="form-control" aria-describedby="nam-input" value="user.zip">
+            <input type="text" class="form-control" aria-describedby="nam-input" value={{users[index].zip}}>
         </div>
         <div class="d-flex flex-row-reverse my-2">
             <button class="btn btn-dark mx-1">

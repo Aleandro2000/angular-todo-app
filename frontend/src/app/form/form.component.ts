@@ -9,6 +9,9 @@ export class FormComponent implements OnInit {
 
   constructor() { }
 
+  name = "";
+  email = ""
+
   ngOnInit(): void {
   }
 
