@@ -10,6 +10,7 @@ module.exports = {
                     name: req.body.name,
                     email: req.body.email,
                     street: req.body.street,
+                    city: req.body.city,
                     zip: req.body.zip,
                 });
                 user.save();
