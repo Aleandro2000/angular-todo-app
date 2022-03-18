@@ -1,3 +1,4 @@
+const ObjectId = require('mongodb').ObjectId;
 const { posts } = require("../models");
 
 module.exports = {
@@ -18,7 +19,7 @@ module.exports = {
         });
     },
     getAllPosts: (req, res) => {
-        posts.findById(req.body._id, (err, posts) => {
+        posts.findById(ObjectId(req.body._id), (err, posts) => {
             err ? res.send({ status: 400, message: err.message }) : res.send({ status: 200, result: posts });
         });
     }

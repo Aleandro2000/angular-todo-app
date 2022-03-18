@@ -1,3 +1,4 @@
+const ObjectId = require('mongodb').ObjectId;
 const { tasks } = require("../models");
 
 module.exports = {
@@ -7,6 +8,7 @@ module.exports = {
                 res.send({ status: 400, message: err.message });
             else if (!task) {
                 const task = new tasks({
+                    _userId: ObjectId(req.body._userId),
                     title: req.body.title
                 });
                 task.save();
@@ -17,12 +19,12 @@ module.exports = {
         });
     },
     markTask: (req, res) => {
-        tasks.findByIdAndUpdate(req.body._id, { completed: true }, (err, task) => {
+        tasks.findByIdAndUpdate(ObjectId(req.body._id), { completed: true }, (err, task) => {
             err ? res.send({ status: 400, message: err.message }) : res.send({ status: 200, message: "Task marked!" });
         });
     },
     getAllTasks: (req, res) => {
-        tasks.findById(req.body._id, (err, tasks) => {
+        tasks.findById(ObjectId(req.body._id), (err, tasks) => {
             err ? res.send({ status: 400, message: err.message }) : res.send({ status: 200, result: tasks });
         });
     }

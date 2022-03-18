@@ -1,3 +1,4 @@
+const ObjectId = require('mongodb').ObjectId;
 const { users, tasks, posts } = require("../models");
 
 module.exports = {
@@ -37,7 +38,7 @@ module.exports = {
         })
     },
     deleteUser: (req, res) => {
-        users.findByIdAndDelete(req.body._id, (err, user) => {
+        users.findByIdAndDelete(ObjectId(req.body._id), (err, user) => {
             tasks.deleteMany({ _userId: req.body._id }, (user, err) => {});
             posts.deleteMany({ _userId: req.body._id }, (user, err) => {});
             err ? res.send({ status: 400, message: err.message }) : res.send({ status: 400, message: "User deleted successfully!" });

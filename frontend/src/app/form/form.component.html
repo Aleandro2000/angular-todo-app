@@ -59,10 +59,10 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">Name</span>
             </div>
-            <input type="text" class="form-control" aria-describedby="nam-input" formControlName="name" required>
+            <input type="text" class="form-control" aria-describedby="nam-input" formControlName="title" required>
         </div>
         <div class="input-group my-3">
-            <select class="form-select" aria-label="users select list">
+            <select class="form-select" aria-label="users select list" formControlName="_userId">
                 <option selected>NONE</option>
                 <option *ngFor="let user of users" value={{user._id}}>{{user.name}}</option>
             </select>
