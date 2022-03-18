@@ -8,8 +8,9 @@ module.exports = {
                 res.send({ status: 400, message: err.message });
             else if (!post) {
                 const post = new posts({
+                    _userId: ObjectId(req.body._userId),
                     title: req.body.title,
-                    body: req.body.body
+                    text: req.body.text
                 });
                 post.save();
                 res.send({ status: 200, message: "Post created succcessfully!" });
