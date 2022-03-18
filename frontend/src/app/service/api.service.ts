@@ -35,14 +35,14 @@ export class ApiService {
   }
 
   deleteUser(data: any) {
-    return this.http.delete(`${baseUrl}/user/delete`, data);
+    return this.http.post(`${baseUrl}/user/delete`, data);
   }
 
   markTask(data: any) {
-    return this.http.put(`${baseUrl}/task/mark`, data);
+    return this.http.post(`${baseUrl}/task/mark`, data);
   }
 
   editUser(data: any) {
-    return this.http.put(`${baseUrl}/user/edit`, data);
+    return this.http.post(`${baseUrl}/user/edit`, data);
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ApiService } from "../service/api.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,7 +12,8 @@ import { ApiService } from "../service/api.service";
 export class DashboardComponent implements OnInit {
 
   constructor(
-    private apiService: ApiService
+    private apiService: ApiService,
+    private router: Router
   ) { }
 
   users: any;
@@ -19,12 +21,6 @@ export class DashboardComponent implements OnInit {
   searchDataForm = new FormGroup({
     search: new FormControl()
   });
-
-  name = new FormControl();
-  email = new FormControl();
-  street = new FormControl();
-  city = new FormControl();
-  zip = new FormControl();
 
   ngOnInit(): void {
     this.getAllUsers();
@@ -46,31 +42,17 @@ export class DashboardComponent implements OnInit {
       );
   }
 
-  editUser(_id: any) {
-    alert(this.name.value)
-    if (this.name.value && this.email.value && this.city.value && this.street.value && this.zip.value)
-      this.apiService.editUser({
-        _id,
-        name: this.name.value,
-        email: this.email.value,
-        city: this.city.value,
-        street: this.street.value,
-        zip: this.zip.value
-      })
-        .subscribe(
-          data => { },
-          error => {
-            alert(error.message);
-          }
-        );
-      else
-        alert("Sorry! The form may not update the user!");
+  editUser(id: any) {
+    sessionStorage.setItem("id", id);
+    this.router.navigate(["/edit"]);
   }
 
   deleteUser(_id: any) {
-    this.apiService.deleteUser({ _id })
+    this.apiService.deleteUser({ _id: _id })
       .subscribe(
-        data => { },
+        data => {
+          this.getAllUsers();
+        },
         error => {
           alert(error.message);
         }

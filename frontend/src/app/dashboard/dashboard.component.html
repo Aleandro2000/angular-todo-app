@@ -27,43 +27,43 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">Name</span>
                 </div>
-                <input type="text" class="form-control" aria-describedby="nam-input" value={{user.name}}>
+                <input type="text" class="form-control" aria-describedby="nam-input" value={{user.name}} readonly>
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Email</span>
                 </div>
-                <input type="email" class="form-control" aria-describedby="nam-input" value={{user.email}}>
+                <input type="email" class="form-control" aria-describedby="nam-input" value={{user.email}} readonly>
             </div>
-            <button class="btn btn-dark mx-1" onclick="document.getElementById(user._id).style.display==='block' ? document.getElementById(user._id).style.display='none' : document.getElementById(user._id).style.display='block'">
+            <button class="btn btn-dark mx-1">
                 Other Data
             </button>
             <div class="d-flex flex-row-reverse my-2">
-                <button class="btn btn-dark mx-1">
+                <button class="btn btn-dark mx-1" (click)="deleteUser(user._id)">
                     Delete
                 </button>
-                <button class="btn btn-dark mx-1">
+                <button class="btn btn-dark mx-1" (click)="editUser(user._id)">
                     Update
                 </button>
             </div>
-            <div id={{user._id}} style="display: none;">
+            <div id={{user._id}}>
                 <div class="input-group my-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">Street</span>
                     </div>
-                    <input type="text" class="form-control" aria-describedby="nam-input" value={{user.street}}>
+                    <input type="text" class="form-control" aria-describedby="nam-input" value={{user.street}} readonly>
                 </div>
                 <div class="input-group my-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">City</span>
                     </div>
-                    <input type="text" class="form-control" aria-describedby="nam-input" value={{user.city}}>
+                    <input type="text" class="form-control" aria-describedby="nam-input" value={{user.city}} readonly>
                 </div>
                 <div class="input-group my-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">Zip Code</span>
                     </div>
-                    <input type="text" class="form-control" aria-describedby="nam-input" value={{user.zip}}>
+                    <input type="text" class="form-control" aria-describedby="nam-input" value={{user.zip}} readonly>
                 </div>
             </div>
         </div>

@@ -10,7 +10,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { FormComponent } from './form/form.component';
 import { ApiService } from './service/api.service';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +20,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     TasksComponent,
     PostsComponent,
     NotFoundComponent,
-    FormComponent
+    FormComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
