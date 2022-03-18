@@ -2,8 +2,10 @@
     <div class="container-fluid">
         <div class="collapse navbar-collapse container d-flex justify-content-center">
             <form class="d-flex" [formGroup]="searchDataForm" (ngSubmit)="onSubmit()">
-                <input class="form-control" type="search" placeholder="Search" aria-label="Search" formControlName="search">
-                <button type="submit" class="btn btn-dark"><i class="fa fa-search" aria-hidden="true" aria-label="search"></i></button>
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search"
+                    formControlName="search">
+                <button type="submit" class="btn btn-dark"><i class="fa fa-search" aria-hidden="true"
+                        aria-label="search"></i></button>
             </form>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
@@ -33,7 +35,7 @@
                 </div>
                 <input type="email" class="form-control" aria-describedby="nam-input" value={{user.email}}>
             </div>
-            <button class="btn btn-dark mx-1">
+            <button class="btn btn-dark mx-1" onclick="document.getElementById(user._id).style.display==='block' ? document.getElementById(user._id).style.display='none' : document.getElementById(user._id).style.display='block'">
                 Other Data
             </button>
             <div class="d-flex flex-row-reverse my-2">
@@ -44,23 +46,25 @@
                     Update
                 </button>
             </div>
-            <div class="input-group my-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Street</span>
+            <div id={{user._id}} style="display: none;">
+                <div class="input-group my-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Street</span>
+                    </div>
+                    <input type="text" class="form-control" aria-describedby="nam-input" value={{user.street}}>
                 </div>
-                <input type="text" class="form-control" aria-describedby="nam-input" value={{user.street}}>
-            </div>
-            <div class="input-group my-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">City</span>
+                <div class="input-group my-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">City</span>
+                    </div>
+                    <input type="text" class="form-control" aria-describedby="nam-input" value={{user.city}}>
                 </div>
-                <input type="text" class="form-control" aria-describedby="nam-input" value={{user.city}}>
-            </div>
-            <div class="input-group my-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Zip Code</span>
+                <div class="input-group my-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Zip Code</span>
+                    </div>
+                    <input type="text" class="form-control" aria-describedby="nam-input" value={{user.zip}}>
                 </div>
-                <input type="text" class="form-control" aria-describedby="nam-input" value={{user.zip}}>
             </div>
         </div>
     </div>

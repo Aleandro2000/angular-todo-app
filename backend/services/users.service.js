@@ -33,7 +33,6 @@ module.exports = {
     },
     getAllUsers: (req, res) => {
         users.find({}, (err, users) => {
-            console.log(err)
             err ? res.send({ status: 400, message: err.message }) : res.send({ status: 200, result: users });
         })
     },
