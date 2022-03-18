@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ApiService } from '../service/api.service';
 
 @Component({
   selector: 'app-form',
@@ -8,7 +9,9 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class FormComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private apiService: ApiService
+  ) { }
 
   dataForm = new FormGroup({
     name: new FormControl(),
@@ -22,7 +25,7 @@ export class FormComponent implements OnInit {
   }
 
   onSubmit() {
-    alert(JSON.stringify(this.dataForm.value))
+    this.apiService.createUser(this.dataForm.value);
   }
 
 }
