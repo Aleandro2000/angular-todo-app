@@ -57,13 +57,15 @@
         </h1>
         <div class="input-group my-3">
             <div class="input-group-prepend">
-                <span class="input-group-text">Name</span>
+                <span class="input-group-text">Title</span>
             </div>
             <input type="text" class="form-control" aria-describedby="task-title-input" formControlName="title" required>
         </div>
         <div class="input-group my-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">User</span>
+            </div>
             <select class="form-select" aria-label="users select list" formControlName="_userId">
-                <option selected>Title</option>
                 <option *ngFor="let user of users" value={{user._id}}>{{user.name}}</option>
             </select>
         </div>
@@ -85,8 +87,10 @@
             <textarea type="text" class="form-control" aria-describedby="post-input" formControlName="text" required></textarea>
         </div>
         <div class="input-group my-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">User</span>
+            </div>
             <select class="form-select" aria-label="users select list" formControlName="_userId">
-                <option selected>NONE</option>
                 <option *ngFor="let user of users" value={{user._id}}>{{user.name}}</option>
             </select>
         </div>
