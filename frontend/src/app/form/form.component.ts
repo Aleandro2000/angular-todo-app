@@ -36,8 +36,9 @@ export class FormComponent implements OnInit {
     text: new FormControl()
   });
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.getAllUsers();
+    alert(this.users)
   }
 
   onUserSubmit() {
@@ -67,8 +68,8 @@ export class FormComponent implements OnInit {
   getAllUsers() {
     this.apiService.getAllUsers()
       .subscribe(
-        data => {
-          this.users = data;
+        (data: any) => {
+          this.users = data.result;
         },
         error => {
           alert(error.message);

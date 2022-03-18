@@ -62,10 +62,12 @@
             <input type="text" class="form-control" aria-describedby="nam-input" formControlName="name" required>
         </div>
         <div class="input-group my-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Email</span>
-            </div>
-            <input type="email" class="form-control" aria-describedby="nam-input" formControlName="email" required>
+            <select class="form-select" aria-label="users select list">
+                <option selected>NONE</option>
+                <span *ngFor="let user of users">
+                    <option value={{user._id}}>{{user.name}}</option>
+                </span>
+            </select>
         </div>
         <button class="btn btn-dark" type="submit">
             Submit
