@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ApiService } from '../service/api.service';
 
 @Component({
@@ -10,7 +11,8 @@ import { ApiService } from '../service/api.service';
 export class FormComponent implements OnInit {
 
   constructor(
-    private apiService: ApiService
+    private apiService: ApiService,
+    private router: Router
   ) { }
 
   users: any;
@@ -41,7 +43,9 @@ export class FormComponent implements OnInit {
   onUserSubmit() {
     this.apiService.createUser(this.userDataForm.value)
       .subscribe(
-        data => { },
+        data => {
+          this.router.navigate(["/"]);
+        },
         error => {
           alert(error.message);
         }
@@ -51,7 +55,9 @@ export class FormComponent implements OnInit {
   onTaskSubmit() {
     this.apiService.createTask(this.taskDataForm.value)
       .subscribe(
-        data => { },
+        data => {
+          this.router.navigate(["/"]);
+        },
         error => {
           alert(error.message);
         }
