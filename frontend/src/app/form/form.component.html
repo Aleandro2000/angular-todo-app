@@ -1,35 +1,37 @@
-<form class="container text-center">
-    <div class="input-group my-3">
-        <div class="input-group-prepend">
-            <span class="input-group-text">Name</span>
+<div>
+    <form class="container text-center" [formGroup]="dataForm" (ngSubmit)="onSubmit()">
+        <div class="input-group my-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Name</span>
+            </div>
+            <input type="text" class="form-control" aria-describedby="nam-input" formControlName="name" required>
         </div>
-        <input type="text" class="form-control" aria-describedby="nam-input">
-    </div>
-    <div class="input-group my-3">
-        <div class="input-group-prepend">
-            <span class="input-group-text">Email</span>
+        <div class="input-group my-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Email</span>
+            </div>
+            <input type="email" class="form-control" aria-describedby="nam-input" formControlName="email" required>
         </div>
-        <input type="text" class="form-control" aria-describedby="nam-input">
-    </div>
-    <div class="input-group my-3">
-        <div class="input-group-prepend">
-            <span class="input-group-text">Street</span>
+        <div class="input-group my-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Street</span>
+            </div>
+            <input type="text" class="form-control" aria-describedby="nam-input" formControlName="street" required>
         </div>
-        <input type="text" class="form-control" aria-describedby="nam-input">
-    </div>
-    <div class="input-group my-3">
-        <div class="input-group-prepend">
-            <span class="input-group-text">City</span>
+        <div class="input-group my-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">City</span>
+            </div>
+            <input type="text" class="form-control" aria-describedby="nam-input" formControlName="city" required>
         </div>
-        <input type="text" class="form-control" aria-describedby="nam-input">
-    </div>
-    <div class="input-group my-3">
-        <div class="input-group-prepend">
-            <span class="input-group-text">Zip Code</span>
+        <div class="input-group my-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Zip Code</span>
+            </div>
+            <input type="number" min="0" class="form-control" aria-describedby="nam-input" formControlName="zip" required>
         </div>
-        <input type="text" class="form-control" aria-describedby="nam-input">
-    </div>
-    <button class="btn btn-dark" type="submit">
-        Submit
-    </button>
-</form>
+        <button class="btn btn-dark" type="submit">
+            Submit
+        </button>
+    </form>
+</div>
