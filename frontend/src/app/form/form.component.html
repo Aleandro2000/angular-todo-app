@@ -64,9 +64,7 @@
         <div class="input-group my-3">
             <select class="form-select" aria-label="users select list">
                 <option selected>NONE</option>
-                <span *ngFor="let user of users">
-                    <option value={{user._id}}>{{user.name}}</option>
-                </span>
+                <option *ngFor="let user of users" value={{user._id}}>{{user.name}}</option>
             </select>
         </div>
         <button class="btn btn-dark" type="submit">

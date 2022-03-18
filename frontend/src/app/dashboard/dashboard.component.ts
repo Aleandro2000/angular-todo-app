@@ -15,7 +15,6 @@ export class DashboardComponent implements OnInit {
   ) { }
   
   users: any;
-  message = "";
   searchDataForm = new FormGroup({
     search: new FormControl()
   });
@@ -35,7 +34,7 @@ export class DashboardComponent implements OnInit {
           this.users = data.result;
         },
         error => {
-          this.message = error;
+          alert(error.message);
         }
       );
   }
@@ -45,7 +44,7 @@ export class DashboardComponent implements OnInit {
       .subscribe(
         data => {},
         error => {
-          this.message = error;
+          alert(error.message);
         }
       );
   }
@@ -55,7 +54,7 @@ export class DashboardComponent implements OnInit {
       .subscribe(
         data => {},
         error => {
-          this.message = error;
+          alert(error.message);
         }
       );
   }

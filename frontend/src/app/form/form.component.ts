@@ -9,7 +9,7 @@ import { ApiService } from '../service/api.service';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-
+  
   constructor(
     private apiService: ApiService,
     private router: Router
@@ -36,9 +36,8 @@ export class FormComponent implements OnInit {
     text: new FormControl()
   });
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getAllUsers();
-    alert(this.users)
   }
 
   onUserSubmit() {
