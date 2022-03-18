@@ -13,7 +13,9 @@ export class FormComponent implements OnInit {
     private apiService: ApiService
   ) { }
 
-  dataForm = new FormGroup({
+  users: any;
+
+  userDataForm = new FormGroup({
     name: new FormControl(),
     email: new FormControl(),
     street: new FormControl(),
@@ -21,11 +23,51 @@ export class FormComponent implements OnInit {
     zip: new FormControl()
   });
 
+  taskDataForm = new FormGroup({
+    _userId: new FormControl(),
+    title: new FormControl()
+  });
+
+  postDataForm = new FormGroup({
+    _userId: new FormControl(),
+    title: new FormControl(),
+    text: new FormControl()
+  });
+
   ngOnInit(): void {
+    this.getAllUsers();
   }
 
-  onSubmit() {
-    this.apiService.createUser(this.dataForm.value);
+  onUserSubmit() {
+    this.apiService.createUser(this.userDataForm.value)
+      .subscribe(
+        data => { },
+        error => {
+          alert(error.message);
+        }
+      );
+  }
+
+  onTaskSubmit() {
+    this.apiService.createTask(this.taskDataForm.value)
+      .subscribe(
+        data => { },
+        error => {
+          alert(error.message);
+        }
+      );
+  }
+
+  getAllUsers() {
+    this.apiService.getAllUsers()
+      .subscribe(
+        data => {
+          this.users = data;
+        },
+        error => {
+          alert(error.message);
+        }
+      );
   }
 
 }

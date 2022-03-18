@@ -23,19 +23,19 @@ export class ApiService {
   }
 
   createUser(data: any) {
-    return this.http.post(`${baseUrl}/user/read`, data);
+    return this.http.post(`${baseUrl}/user/create`, data);
   }
   
   createTask(data: any) {
-    return this.http.post(`${baseUrl}/task/read`, data);
+    return this.http.post(`${baseUrl}/task/create`, data);
   }
   
   createPost(data: any) {
-    return this.http.post(`${baseUrl}/post/read`, data);
+    return this.http.post(`${baseUrl}/post/create`, data);
   }
 
   deleteUser(data: any) {
-    return this.http.delete(`${baseUrl}/post/read`, data);
+    return this.http.delete(`${baseUrl}/user/delete`, data);
   }
 
   markTask(data: any) {

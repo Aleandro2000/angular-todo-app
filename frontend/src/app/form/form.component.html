@@ -1,5 +1,8 @@
 <div>
-    <form class="container text-center" [formGroup]="dataForm" (ngSubmit)="onSubmit()">
+    <form class="container text-center shadow rounded p-3 my-5" [formGroup]="userDataForm" (ngSubmit)="onUserSubmit()">
+        <h1 class="text-center">
+            User Form
+        </h1>
         <div class="input-group my-3">
             <div class="input-group-prepend">
                 <span class="input-group-text">Name</span>
@@ -29,6 +32,26 @@
                 <span class="input-group-text">Zip Code</span>
             </div>
             <input type="number" min="0" class="form-control" aria-describedby="nam-input" formControlName="zip" required>
+        </div>
+        <button class="btn btn-dark" type="submit">
+            Submit
+        </button>
+    </form>
+    <form class="container text-center shadow rounded p-3 my-5" [formGroup]="taskDataForm" (ngSubmit)="onTaskSubmit()">
+        <h1 class="text-center">
+            Task Form
+        </h1>
+        <div class="input-group my-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Name</span>
+            </div>
+            <input type="text" class="form-control" aria-describedby="nam-input" formControlName="name" required>
+        </div>
+        <div class="input-group my-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Email</span>
+            </div>
+            <input type="email" class="form-control" aria-describedby="nam-input" formControlName="email" required>
         </div>
         <button class="btn btn-dark" type="submit">
             Submit
