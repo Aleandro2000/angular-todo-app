@@ -64,6 +64,18 @@ export class FormComponent implements OnInit {
       );
   }
 
+  onPostSubmit() {
+    this.apiService.createPost(this.postDataForm.value)
+      .subscribe(
+        data => {
+          this.router.navigate(["/"]);
+        },
+        error => {
+          alert(error.message);
+        }
+      );
+  }
+
   getAllUsers() {
     this.apiService.getAllUsers()
       .subscribe(
