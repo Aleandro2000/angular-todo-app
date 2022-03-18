@@ -22,9 +22,11 @@ module.exports = {
         });
     },
     editUser: (req, res) => {
-        users.findByIdAndUpdate(req.body._id, {
+        console.log(req.body)
+        users.findOneAndUpdate({ _id: req.body._id }, {
             name: req.body.name,
             email: req.body.email,
+            city: req.body.city,
             street: req.body.street,
             zip: req.body.zip
         }, (err, user) => {
@@ -37,9 +39,9 @@ module.exports = {
         })
     },
     deleteUser: (req, res) => {
-        users.findOneAndDelete({_id: ObjectId(req.body._id)}, (err, user) => {
-            tasks.deleteMany({ _userId: req.body._id }, (user, err) => {});
-            posts.deleteMany({ _userId: req.body._id }, (user, err) => {});
+        users.findOneAndDelete({ _id: ObjectId(req.body._id) }, (err, user) => {
+            tasks.deleteMany({ _userId: req.body._id }, (user, err) => { });
+            posts.deleteMany({ _userId: req.body._id }, (user, err) => { });
             err ? res.send({ status: 400, message: err.message }) : res.send({ status: 400, message: "User deleted successfully!" });
         })
     }

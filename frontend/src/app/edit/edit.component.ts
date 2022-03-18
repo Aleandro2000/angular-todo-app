@@ -30,7 +30,7 @@ export class EditComponent implements OnInit {
   });
 
   onUserSubmit() {
-    this.apiService.editUser({...this.userDataForm.value, id: sessionStorage.getItem("id")})
+    this.apiService.editUser({...this.userDataForm.value, _id: sessionStorage.getItem("id")})
       .subscribe(
         data => {
           this.router.navigate(["/"]);
