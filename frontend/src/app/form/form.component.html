@@ -1,4 +1,17 @@
 <div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse container d-flex justify-content-center">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a type="button" class="btn btn-dark" href="/">
+                            Back
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <form class="container text-center shadow rounded p-3 my-5" [formGroup]="userDataForm" (ngSubmit)="onUserSubmit()">
         <h1 class="text-center">
             User Form
@@ -31,7 +44,8 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">Zip Code</span>
             </div>
-            <input type="number" min="0" class="form-control" aria-describedby="nam-input" formControlName="zip" required>
+            <input type="number" min="0" class="form-control" aria-describedby="nam-input" formControlName="zip"
+                required>
         </div>
         <button class="btn btn-dark" type="submit">
             Submit
