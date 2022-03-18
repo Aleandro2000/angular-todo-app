@@ -9,11 +9,11 @@ router.post("/create", (req, res) => {
     req.body ? createUser(req, res) : res.send({ status: 400, message: "Data may not be empty!" });
 });
 
-router.put("/edit", (req, res) => {
+router.post("/edit", (req, res) => {
     req.body ? editUser(req, res) : res.send({ status: 400, message: "Data may not be empty!" });
 });
 
-router.delete("/delete", (req, res) => {
+router.post("/delete", (req, res) => {
     req.body ? deleteUser(req, res) : res.send({ status: 400, message: "Data may not be empty!" });
 });
 

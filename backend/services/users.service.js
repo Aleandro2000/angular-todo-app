@@ -37,7 +37,7 @@ module.exports = {
         })
     },
     deleteUser: (req, res) => {
-        users.findByIdAndDelete(ObjectId(req.body._id), (err, user) => {
+        users.findOneAndDelete({_id: ObjectId(req.body._id)}, (err, user) => {
             tasks.deleteMany({ _userId: req.body._id }, (user, err) => {});
             posts.deleteMany({ _userId: req.body._id }, (user, err) => {});
             err ? res.send({ status: 400, message: err.message }) : res.send({ status: 400, message: "User deleted successfully!" });
