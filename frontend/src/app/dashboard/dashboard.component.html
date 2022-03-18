@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <div class="collapse navbar-collapse container d-flex justify-content-center">
-            <div class="d-flex">
-                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-dark">Search</button>
-            </div>
+            <form class="d-flex" [formGroup]="searchDataForm" (ngSubmit)="onSubmit()">
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search" formControlName="search">
+                <button type="submit" class="btn btn-dark">Search</button>
+            </form>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <a type="button" class="btn btn-dark" href="/form">
@@ -16,7 +16,7 @@
     </div>
 </nav>
 <div class="container">
-    <div class="card shadow my-5" *ngFor="let user of users.result; index as i">
+    <div class="card shadow my-5" *ngFor="let user of users; index as i">
         <div class="card-body">
             <div>
                 ID: {{i + 1}}

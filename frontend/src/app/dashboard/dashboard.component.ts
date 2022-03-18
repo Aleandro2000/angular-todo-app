@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ApiService } from "../service/api.service";
 
 @Component({
@@ -9,23 +10,29 @@ import { ApiService } from "../service/api.service";
 })
 export class DashboardComponent implements OnInit {
 
-  users: any;
-  message = "";
-  search = "";
-
   constructor(
     private apiService: ApiService
   ) { }
+  
+  users: any;
+  message = "";
+  searchDataForm = new FormGroup({
+    search: new FormControl()
+  });
 
   ngOnInit(): void {
     this.getAllUsers();
   }
 
+  onSubmit() {
+      this.searchDataForm.value.search ? this.users = this.users.filter((element: any) => element.email.includes(this.searchDataForm.value.search)) : this.getAllUsers();
+  }
+
   getAllUsers() {
     this.apiService.getAllUsers()
       .subscribe(
-        data => {
-          this.users = data;
+        (data: any) => {
+          this.users = data.result;
         },
         error => {
           this.message = error;
