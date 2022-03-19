@@ -27,7 +27,7 @@ export class DashboardComponent implements OnInit {
   }
 
   onSubmit() {
-    this.searchDataForm.value.search ? this.users = this.users.filter((element: any) => element.email.includes(this.searchDataForm.value.search)) : this.getAllUsers();
+    this.searchDataForm.value.search ? this.users = this.users.filter((element: any) => element.email.toLowerCase().includes(this.searchDataForm.value.search.toLowerCase())) : this.getAllUsers();
   }
 
   getAllUsers() {
