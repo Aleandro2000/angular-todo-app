@@ -21,7 +21,7 @@ export class PostsComponent implements OnInit {
   }
 
   getAllPosts() {
-    this.apiService.getAllPosts({_id: sessionStorage.getItem("id")})
+    this.apiService.getAllPosts({id: sessionStorage.getItem("id")})
       .subscribe(
         (data: any) => {
           this.posts = data.result;

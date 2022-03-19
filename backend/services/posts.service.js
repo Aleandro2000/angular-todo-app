@@ -20,7 +20,7 @@ module.exports = {
         });
     },
     getAllPosts: (req, res) => {
-        posts.findById(ObjectId(req.body._id), (err, posts) => {
+        posts.find({ _userId: ObjectId(req.body.id) }, (err, posts) => {
             err ? res.send({ status: 400, message: err.message }) : res.send({ status: 200, result: posts });
         });
     }
