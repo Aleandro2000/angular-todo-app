@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ApiService } from '../service/api.service';
 
 @Component({
   selector: 'app-tasks',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TasksComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private apiService: ApiService,
+    private roter: Router
+  ) { }
+
+  tasks: any;
 
   ngOnInit(): void {
+    !sessionStorage.getItem("id") ? this.roter.navigate(["/"]) : this.getAllTasks();
+  }
+
+  getAllTasks() {
+    this.apiService.getAllTasks({_id: sessionStorage.getItem("id")})
+      .subscribe(
+        (data: any) => {
+          this.tasks = data.result;
+        },
+        error => {
+          alert(error.message);
+        }
+      );
   }
 
 }

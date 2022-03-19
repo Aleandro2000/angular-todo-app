@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ApiService } from '../service/api.service';
 
 @Component({
   selector: 'app-posts',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private apiService: ApiService,
+    private roter: Router
+  ) { }
+
+  posts: any;
 
   ngOnInit(): void {
+    !sessionStorage.getItem("id") ? this.roter.navigate(["/"]) : this.getAllPosts();
+  }
+
+  getAllPosts() {
+    this.apiService.getAllPosts({_id: sessionStorage.getItem("id")})
+      .subscribe(
+        (data: any) => {
+          this.posts = data.result;
+        },
+        error => {
+          alert(error.message);
+        }
+      );
   }
 
 }

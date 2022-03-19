@@ -22,7 +22,6 @@ module.exports = {
         });
     },
     editUser: (req, res) => {
-        console.log(req.body)
         users.findOneAndUpdate({ _id: req.body._id }, {
             name: req.body.name,
             email: req.body.email,
