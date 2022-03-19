@@ -25,3 +25,18 @@
         </div>
     </div>
 </nav>
+<div class="container">
+    <div class="card shadow my-5" *ngFor="let post of posts">
+        <div class="card-body">
+            <div class="input-group my-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Title</span>
+                </div>
+                <input type="email" class="form-control" aria-describedby="nam-input" value={{post.title}} readonly>
+            </div>
+            <p align="justify">
+                {{post.text}}
+            </p>
+        </div>
+    </div>
+</div>
