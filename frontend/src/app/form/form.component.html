@@ -51,7 +51,7 @@
             Submit
         </button>
     </form>
-    <form class="container text-center shadow rounded p-3 my-5" [formGroup]="taskDataForm" (ngSubmit)="onTaskSubmit()">
+    <form *ngIf="users.length" class="container text-center shadow rounded p-3 my-5" [formGroup]="taskDataForm" (ngSubmit)="onTaskSubmit()">
         <h1 class="text-center">
             Task Form
         </h1>
@@ -73,7 +73,7 @@
             Submit
         </button>
     </form>
-    <form class="container text-center shadow rounded p-3 my-5" [formGroup]="postDataForm" (ngSubmit)="onPostSubmit()">
+    <form *ngIf="users.length" class="container text-center shadow rounded p-3 my-5" [formGroup]="postDataForm" (ngSubmit)="onPostSubmit()">
         <h1 class="text-center">
             Post Form
         </h1>
