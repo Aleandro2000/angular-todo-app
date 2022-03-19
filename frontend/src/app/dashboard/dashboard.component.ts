@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ApiService } from "../service/api.service";
 import { Router } from '@angular/router';
@@ -13,10 +13,11 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private apiService: ApiService,
-    private router: Router
+    private router: Router,
   ) { }
 
   users: any;
+  showList: any;
 
   searchDataForm = new FormGroup({
     search: new FormControl()
@@ -24,6 +25,15 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllUsers();
+  }
+
+  showMore(id: string) {
+    if (typeof this.showList === "undefined")
+      this.showList = [];
+    if (!this.showList.includes(id))
+      this.showList.push(id);
+    else
+      this.showList = this.showList.filter((item: string) => item !== id);
   }
 
   onSubmit() {

@@ -35,7 +35,7 @@
                 </div>
                 <input type="email" class="form-control" aria-describedby="nam-input" value={{user.email}} readonly>
             </div>
-            <button class="btn btn-dark mx-1">
+            <button class="btn btn-dark mx-1" (click)="showMore(user._id)">
                 Other Data
             </button>
             <div class="d-flex flex-row-reverse my-2">
@@ -46,7 +46,7 @@
                     Update
                 </button>
             </div>
-            <div id={{user._id}}>
+            <div *ngIf="showList?.length && showList.includes(user._id)">
                 <div class="input-group my-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">Street</span>
