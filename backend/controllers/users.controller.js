@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { createUser, editUser, getAllUsers, deleteUser } = require("../services").usersService;
 
-router.post("/read", (req, res) => {
+router.get("/read", (req, res) => {
     getAllUsers(req, res)
 });
 

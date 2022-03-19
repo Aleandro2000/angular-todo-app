@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { createPost, getAllPosts } = require("../services").postService;
 
-router.get("/read", (req, res) => {
+router.post("/read", (req, res) => {
     getAllPosts(req, res);
 });
 
