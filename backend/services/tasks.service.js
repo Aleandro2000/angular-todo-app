@@ -19,12 +19,12 @@ module.exports = {
         });
     },
     markTask: (req, res) => {
-        tasks.findByIdAndUpdate(ObjectId(req.body._id), { completed: true }, (err, task) => {
+        tasks.findOneAndUpdate({_id: ObjectId(req.body.id)}, { completed: true }, (err, task) => {
             err ? res.send({ status: 400, message: err.message }) : res.send({ status: 200, message: "Task marked!" });
         });
     },
     getAllTasks: (req, res) => {
-        tasks.findById(ObjectId(req.body._id), (err, tasks) => {
+        tasks.find({_userId: ObjectId(req.body.id)}, (err, tasks) => {
             err ? res.send({ status: 400, message: err.message }) : res.send({ status: 200, result: tasks });
         });
     }

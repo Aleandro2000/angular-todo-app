@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { createTask, markTask, getAllTasks } = require("../services").tasksService;
 
-router.get("/read", (req, res) => {
+router.post("/read", (req, res) => {
     getAllTasks(req, res);
 });
 

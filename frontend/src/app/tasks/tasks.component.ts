@@ -21,10 +21,23 @@ export class TasksComponent implements OnInit {
   }
 
   getAllTasks() {
-    this.apiService.getAllTasks({_id: sessionStorage.getItem("id")})
+    this.apiService.getAllTasks({ id: sessionStorage.getItem("id") })
       .subscribe(
         (data: any) => {
           this.tasks = data.result;
+        },
+        error => {
+          alert(error.message);
+        }
+      );
+  }
+
+  markAsDone(id: any) {
+    this.apiService.markTask({ id })
+      .subscribe(
+        (data: any) => {
+          alert(data.message)
+          this.getAllTasks();
         },
         error => {
           alert(error.message);

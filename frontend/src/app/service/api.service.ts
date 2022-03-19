@@ -15,11 +15,11 @@ export class ApiService {
   }
 
   getAllTasks(data: any) {
-    return this.http.get(`${baseUrl}/tasks/read`, data);
+    return this.http.post(`${baseUrl}/task/read`, data);
   }
 
   getAllPosts(data: any) {
-    return this.http.get(`${baseUrl}/post/read`, data);
+    return this.http.post(`${baseUrl}/post/read`, data);
   }
 
   createUser(data: any) {

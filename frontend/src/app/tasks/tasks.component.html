@@ -7,17 +7,17 @@
             </div>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a type="button" class="btn btn-dark" href="/form">
+                    <a type="button" class="btn btn-dark w-100" href="/form">
                         Add
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a type="button" class="btn btn-dark" href="/posts">
+                    <a type="button" class="btn btn-dark w-100" href="/posts">
                         Posts
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a type="button" class="btn btn-dark" href="/">
+                    <a type="button" class="btn btn-dark w-100" href="/">
                         Back
                     </a>
                 </li>
@@ -25,3 +25,20 @@
         </div>
     </div>
 </nav>
+<div class="container">
+    <div class="card shadow my-5" *ngFor="let task of tasks; index as i">
+        <div class="card-body">
+            <div class="input-group my-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Task</span>
+                </div>
+                <input type="email" class="form-control" aria-describedby="nam-input" value={{task.title}} readonly>
+            </div>
+            <div class="d-flex flex-row-reverse" *ngIf="!task.completed">
+                <button class="btn btn-dark mx-1" (click)="markAsDone(task._id)">
+                    Mark as DONE
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

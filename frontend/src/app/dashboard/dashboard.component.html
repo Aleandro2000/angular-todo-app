@@ -20,9 +20,9 @@
 <div class="container">
     <div class="card shadow my-5" *ngFor="let user of users; index as i">
         <div class="card-body">
-            <div>
+            <button class="btn btn-dark" (click)="goToPosts(user._id)" aria-label="posts-button">
                 ID: {{i + 1}}
-            </div>
+            </button>
             <div class="input-group my-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Name</span>

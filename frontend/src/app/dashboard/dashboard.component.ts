@@ -27,7 +27,7 @@ export class DashboardComponent implements OnInit {
   }
 
   onSubmit() {
-    this.searchDataForm.value.search ? this.users = this.users.filter((element: any) => element.email.toLowerCase().includes(this.searchDataForm.value.search.toLowerCase())) : this.getAllUsers();
+    this.searchDataForm.value.search ? this.users = this.users.filter((element: any) => element.email.trim().toLowerCase().includes(this.searchDataForm.value.search.trim().toLowerCase())) : this.getAllUsers();
   }
 
   getAllUsers() {
@@ -57,6 +57,11 @@ export class DashboardComponent implements OnInit {
           alert(error.message);
         }
       );
+  }
+
+  goToPosts(id: any) {
+    sessionStorage.setItem("id", id);
+    this.router.navigate(["/posts"]);
   }
 
 }
